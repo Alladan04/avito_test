@@ -1,0 +1,13 @@
+test:
+	docker compose -f docker-compose.test.yml up -d --build
+	go test -v ./tests/
+	docker compose -f docker-compose.test.yml down --volumes
+
+
+lint:
+	golangci-lint run --config=.golangci.yaml 
+
+start:
+	docker compose -f docker-compose.yml up --build
+stop:
+	docker compose -f docker-compose.yml down --volumes

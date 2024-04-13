@@ -1,0 +1,59 @@
+version: "3.3"
+
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+      dockerfile: ./build/main.Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_started
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - Avito_test-network
+  postgres:
+    env_file:
+      - .env
+    container_name: postgres
+    image: postgres:15.0
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - Avito_test-network
+    volumes:
+      - ./build/sql/create_script.sql:/docker-entrypoint-initdb.d/initdb.sql
+      - avito_test-db-data:/var/lib/postgresql/data
+  redis:
+    container_name: redis
+    image: redis:latest
+    command:
+      - /bin/sh
+      - -c
+      - redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - avito_test-redis-data:/var/lib/redis/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
+    networks:
+      - Avito_test-network
+networks:
+  Avito_test-network:
+    name: Avito_test-network
+    driver: bridge
+
+volumes:
+  avito_test-db-data:
+  avito_test-redis-data:
+
