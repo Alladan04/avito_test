@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "209fe4d1-5c70-4e8c-ae05-fa63f68d148f",
+		"name": "avito_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25759300",
+		"_collection_link": "https://winter-shadow-63147.postman.co/workspace/all~1fb7b2a5-4c75-42d3-b5fc-d0c5e3869421/collection/25759300-209fe4d1-5c70-4e8c-ae05-fa63f68d148f?action=share&source=collection_link&creator=25759300"
+	},
+	"item": [
+		{
+			"name": "add banner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzAxNjIsInVzciI6InVzZXJ1c2VyIn0.soVGjczL2HI9bStcwwLbbh4dvvuPJ4aU4il-ON7iyM8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tag_ids\": [\n    0\n  ],\n  \"feature_id\": 0,\n  \"content\": {\n    \"title\": \"some_title\",\n    \"text\": \"some_text\",\n    \"url\": \"some_url\"\n  },\n  \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/banner",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"useruser\",\n    \"password\":\"testuser\",\n    \"is_admin\":false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/auth/signup",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get banners admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzAxNjIsInVzciI6InVzZXJ1c2VyIn0.soVGjczL2HI9bStcwwLbbh4dvvuPJ4aU4il-ON7iyM8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/banner?",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"banner"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"testuser\",\n    \"password\":\"testuser\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/auth/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get banner user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwOTg2MjIsInVzciI6InRlc3R1c2VyIn0.y3QL_zPv9pq5lSsyM3HDpEv8z1JuVQ4LN32jYd1V4Cg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/user_banner?feature_id=1&tag_id=10",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"user_banner"
+					],
+					"query": [
+						{
+							"key": "feature_id",
+							"value": "1"
+						},
+						{
+							"key": "tag_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update banner",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMxMDMyMjYsInVzciI6InRlc3R1c2VyIn0.gL163QjoMuiNFFQTTD5uLOr5-UXpCi2IiaOZmvF3EbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"tag_ids\":[1,2,3],\n  \"content\": {\n    \"title\": \"lplkd\",\n    \n    \"url\": \"some_url\"\n    \n  },\n  \"is_active\":false\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/banner/10",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"banner",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete banner",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMxMDI3MjQsInVzciI6InVzZXJ1c2VyIn0.wviJ4r6n5yhT-t_R98GgJ9Rkl2k6bk8CLA7uo8wIXkY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}{{PORT}}/api/banner/10",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"banner",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
