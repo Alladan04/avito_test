@@ -2,10 +2,10 @@
 1. Убедитесь, что порты 6379 и 5432 ничем не заняты. Если заняты - освободить.
 2. В корне проекта создайте файл .env, пример содержания:</b>
    
- POSTGRES_USER = postgres </b>
- POSTGRES_PASSWORD=postgres</b>
- POSTGRES_DB=testdb</b>
- REDIS_PASSWORD=1111</b>
+ POSTGRES_USER = postgres </br>
+ POSTGRES_PASSWORD=postgres</br>
+ POSTGRES_DB=testdb</br>
+ REDIS_PASSWORD=1111</br>
  
  DATABASE_URL=postgres://postgres:postgres@postgres:5432/testdb</br>
  REDIS_URL=redis://default:1111@redis:6379/0?protocol=3</br>
